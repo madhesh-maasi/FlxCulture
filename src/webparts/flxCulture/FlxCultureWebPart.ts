@@ -28,6 +28,9 @@ export default class FlxCultureWebPart extends BaseClientSideWebPart<IFlxCulture
   }    
   public render(): void {      
     this.domElement.innerHTML = `
+    <div class="loader-section" style="display:none"> 
+    <div class="loader"></div>  
+    </div>  
     <div class="container container-sm container-lg contaoiner-md mx-4 bg-color">  
     <div class="tile-head bg-secondary p-2">
     <h6 class="mx-2 mt-2">FLX Culture</h6>
@@ -135,6 +138,7 @@ export default class FlxCultureWebPart extends BaseClientSideWebPart<IFlxCulture
   }
 }
 function getFLXCulture() {
+  $(".loader-section").show();
   var html = "";    
   sp.web.lists
     .getByTitle("FLXCulture")
@@ -151,5 +155,6 @@ function getFLXCulture() {
       $("#tile").html(""); 
       $("#tile").html(html);
     })
+    $(".loader-section").hide();  
 }
   
