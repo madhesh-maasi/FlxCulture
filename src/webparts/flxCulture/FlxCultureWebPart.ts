@@ -138,7 +138,6 @@ export default class FlxCultureWebPart extends BaseClientSideWebPart<IFlxCulture
   }
 }
 function getFLXCulture() {
-  $(".loader-section").show();
   var html = "";    
   sp.web.lists
     .getByTitle("FLXCulture")
@@ -154,7 +153,6 @@ function getFLXCulture() {
         }
       $("#tile").html(""); 
       $("#tile").html(html);
-    })
-    $(".loader-section").hide();  
+    }) 
 }
   
